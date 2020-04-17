@@ -6,11 +6,7 @@
 var express = require("express");
 var app = express();
 
-PORT = process.env.PORT || 3000;
-
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(express.static("public"))
+fs = require("fs");
 
 var notes = require("./db/db.json");
 
@@ -47,9 +43,5 @@ app.delete("/api/notes/:id", function(req,res){
 
 })
 
-app.listen(PORT, function(){
-    console.log("Listening on:" + PORT)
-
-})
 
 modules.export = apiRoute;
