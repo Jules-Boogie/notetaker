@@ -1,8 +1,8 @@
 const express = require("express")
 
 var app = express(); 
-const apiRoute = require("./routes/apiRoutes");
-const htmlRoute = require("./routes/htmlRoutes");
+const apiRoute = require("./routes/apiRoute");
+const htmlRoute = require("./routes/htmlRoute");
 
 // need a port
 // make express use json 

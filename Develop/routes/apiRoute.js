@@ -2,13 +2,14 @@
 // import database from db folder
 // create getNotes routes and create postNotes router and deleteNotes router
 // export the router
-
+const router = require("express").Router();
 var express = require("express");
 var app = express();
 
 fs = require("fs");
 
-var notes = require("./db/db.json");
+var notes = require("../db/db.json");
+
 
 app.route('/api/notes');
 
@@ -44,4 +45,4 @@ app.delete("/api/notes/:id", function(req,res){
 })
 
 
-modules.export = apiRoute;
+module.exports = router;
