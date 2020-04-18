@@ -56,7 +56,7 @@ class notes {
 
     deleteNotes(id){
         return this.getNotes()
-        .then(notes => notes.filter(note => note.id === parseInt(id)))
+        .then(notes => notes.filter(note => note.id !== parseInt(id)))
         .then(updatenotes => this.write(updatenotes))
 
 
