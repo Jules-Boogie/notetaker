@@ -6,13 +6,18 @@ This is a basic app that enables a user to add, delete, and edit notes. This app
 
 
 ## NoteTaker Video
-
+[MP4 of the App](https://github.com/Jules-Boogie/notetaker/blob/master/Develop/public/assets/bandicam%202020-04-17%2022-39-50-164.mp4)
 
 ## NoteTaker Deployed App
 
 
 
 ## NoteTaker App Photos
+
+![Site Photo](https://github.com/Jules-Boogie/notetaker/blob/master/Develop/public/assets/Capture.PNG)
+
+
+![Site Photo](https://github.com/Jules-Boogie/notetaker/blob/master/Develop/public/assets/Capture1.PNG)
 
 
 
