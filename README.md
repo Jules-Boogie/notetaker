@@ -2,11 +2,13 @@
 # NoteTaker App
 
 ## Summary 
+This is a basic app that enables a user to add, delete, and edit notes. This app was developed using expressjs routing, nodejs, CSS, and jquery ajax call.
 
 
+## NoteTaker Video
 
-## Note Taker Video
 
+## NoteTaker Deployed App
 
 
 
@@ -23,8 +25,18 @@
 
 
 ## Code Snippet
+The code below executes a method getNotes(), then filters through every element in "notes" and returns into a "notes" only elements that meet the condition note.id !== parseInt(id). Basically, this line of code, gets the note we have and then removes the deleted note using the id. 
+```
+deleteNotes(id){
+        return this.getNotes()
+        .then(notes => notes.filter(note => note.id !== parseInt(id)))
+        .then(updatenotes => this.write(updatenotes))
 
 
+
+    }
+
+```
 
 ## Author Links
 
