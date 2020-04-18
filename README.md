@@ -9,6 +9,7 @@ This is a basic app that enables a user to add, delete, and edit notes. This app
 [MP4 of the App](https://github.com/Jules-Boogie/notetaker/blob/master/public/assets/bandicam%202020-04-17%2022-39-50-164.mp4)
 
 ## NoteTaker Deployed App
+https://jg-notetaker.herokuapp.com/
 
 
 
