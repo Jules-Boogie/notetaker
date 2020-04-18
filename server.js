@@ -10,7 +10,7 @@ const htmlRoute = require("./routes/htmlRoute");
 // make express use json 
 // make sure app used url encoded and make sure extended is true.
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 2000;
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
