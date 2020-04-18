@@ -7,15 +7,14 @@
 const router = require("express").Router();
 var express = require("express");
 var app = express();
+const path = require("path");
 
 PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(express.static("public"))
 
 
-app.get("/notes", function(req, res){
+
+router.get("/notes", function(req, res){
     res.sendFile(path.join(__dirname,"../public/notes.html"))
 
 
@@ -24,7 +23,7 @@ app.get("/notes", function(req, res){
 
 
 
-app.get("*", function(req, res){
+router.get("*", function(req, res){
     res.sendFile(path.join(__dirname,"../public/index.html"))
 
 

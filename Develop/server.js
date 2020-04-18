@@ -1,5 +1,7 @@
 const express = require("express")
 
+const fs = require("fs");
+
 var app = express(); 
 const apiRoute = require("./routes/apiRoute");
 const htmlRoute = require("./routes/htmlRoute");
@@ -8,7 +10,7 @@ const htmlRoute = require("./routes/htmlRoute");
 // make express use json 
 // make sure app used url encoded and make sure extended is true.
 
-PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())

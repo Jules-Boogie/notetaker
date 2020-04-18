@@ -8,36 +8,40 @@ var app = express();
 
 fs = require("fs");
 
-var notes = require("../db/db.json");
+var notes = require("../db/storenotes");
 
 
-app.route('/api/notes');
+// get notes using function in index js
 
-app.get((req,res) => {
-    return res.json(notes);
+router.get("/notes", (req,res) => {
+    notes.getNotes()
+    .then(function(notes){
+        return res.json(notes);
+    })
+    
 })
 
-app.post((res,req) => {
-    let newnote = req.body
-    newnote.id = parseInt(notes[notes.length - 1].id) + 1
-    notes.push(newnote);
-    fs.writeFile("./db/db.json",JSON.stringify(notes,null,2), function(err,data){
-        if (err) throw err;
-        return res.json(data);
+
+router.post("/notes",(req,res) => {
+    let newnote1 = req.body
+    notes.addNotes(newnote1)
+    .then(function(notes){
+        return res.json(notes)
+
     })
+  
+  
 
 })
 
-app.delete("/api/notes/:id", function(req,res){
+router.delete("/notes/:id", function(req,res){
 
-    let id = req.params.id;
-    res.json((notes.splice(id-1,1)))
-    fs.writeFile("./db/db.json",JSON.stringify(notes,null,2), function(err,data){
-        if(err) throw err
-        return res.json(data);
-
+    let idVal = req.params.id;
+    notes.deleteNotes(idVal)
+    .then(function(){
+        return res.json({ok: true})
     })
-
+   
 
    
    
