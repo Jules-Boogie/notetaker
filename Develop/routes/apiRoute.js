@@ -18,6 +18,7 @@ router.get("/notes", (req,res) => {
     .then(function(notes){
         return res.json(notes);
     })
+    .catch(err => res.status(500).json(err));
     
 })
 
@@ -29,18 +30,19 @@ router.post("/notes",(req,res) => {
         return res.json(notes)
 
     })
-  
+    .catch(err => res.status(500).json(err))
   
 
 })
 
 router.delete("/notes/:id", function(req,res){
 
-    let idVal = req.params.id;
-    notes.deleteNotes(idVal)
+    let id = req.params.id;
+    notes.deleteNotes(id)
     .then(function(){
         return res.json({ok: true})
     })
+    .catch(err => res.status(500).json(err))
    
 
    

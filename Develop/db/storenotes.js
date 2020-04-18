@@ -13,16 +13,16 @@ var appendFileAsyn = util.promisify(fs.appendFile);
 // create a class and this class has to have 3 functions 
 
 class notes {
-    constructor(id){
-        this.id = id;
+    constructor(){
+        this.id = 0;
     }
     read(){
-        return readFileAsyn("db.json", "utf8");
+        return readFileAsyn("db/db.json", "utf8");
 
     }
     write(notes){
 
-        return writeFileAsyn("db.json", JSON.stringify(notes))
+        return writeFileAsyn("db/db.json", JSON.stringify(notes))
     }
 
     getNotes(){
@@ -30,7 +30,15 @@ class notes {
         .then(notes => {
             console.log(notes)
             //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-            let notesArray = [].concat(JSON.parse(notes));
+            let notesArray
+            try {
+            notesArray = [].concat(JSON.parse(notes));
+            }
+
+            catch(err){
+                notesArray = [];
+            }
+
             return notesArray;
         })
 
@@ -39,7 +47,7 @@ class notes {
     }
     addNotes(note){
         const {title, text} = note;
-        const newnote = { title, text, id: this.id}
+        const newnote = { title, text, id: ++this.id}
         return this.getNotes()
         .then(notes => [...notes, newnote])
         .then(updatenotes => this.write(updatenotes))
@@ -48,7 +56,7 @@ class notes {
 
     deleteNotes(id){
         return this.getNotes()
-        .then(notes => notes.filter(note => note.id !== parseInt(id)))
+        .then(notes => notes.filter(note => note.id === parseInt(id)))
         .then(updatenotes => this.write(updatenotes))
 
 
