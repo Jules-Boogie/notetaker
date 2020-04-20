@@ -78,4 +78,4 @@ class notes {
 // export the class
 
 
-module.exports = new notes()
+module.exports = new notes();

@@ -4,17 +4,14 @@
 // create a wildcard router and this returns public/index.html file
 // export the router
 
-const router = require("express").Router();
-var express = require("express");
-var app = express();
+// const router = require("express").Router();
 const path = require("path");
+module.exports = function(app){
 
 
 
 
-
-
-router.get("/notes", function(req, res){
+app.get("/notes", function(req, res){
     res.sendFile(path.join(__dirname,"../public/notes.html"))
 
 
@@ -23,7 +20,7 @@ router.get("/notes", function(req, res){
 
 
 
-router.get("*", function(req, res){
+app.get("*", function(req, res){
     res.sendFile(path.join(__dirname,"../public/index.html"))
 
 
@@ -31,5 +28,6 @@ router.get("*", function(req, res){
 
 
 
-module.exports = router;
+//module.exports = router;
 
+}
